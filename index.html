@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local ONNX Image Runner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Private, browser-only image processing</p>
+        <h1>Remove watermarks instantly.</h1>
+        <p class="lede">
+          Upload an image, and we'll automatically remove the watermark for you.
+          Everything happens locally in your browser—your data never leaves your device.
+        </p>
+      </section>
+
+      <section class="panel">
+        <button class="dropzone" data-dropzone type="button">
+          <span class="dropzone-title">Drop your image here</span>
+          <span>or click to browse</span>
+          <span class="dropzone-types">PNG JPG WebP</span>
+        </button>
+
+        <input data-file-input type="file" accept="image/png,image/jpeg,image/webp" hidden />
+
+        <div class="controls">
+          <label>
+            <span>Output Format</span>
+            <select data-format>
+              <option value="webp">WebP</option>
+              <option value="png">PNG</option>
+              <option value="jpeg">JPEG</option>
+            </select>
+          </label>
+
+          <!-- Technical controls hidden from user -->
+          <div hidden>
+            <input
+              data-model-url
+              type="url"
+              value="https://huggingface.co/Carve/LaMa-ONNX/resolve/main/lama_fp32.onnx"
+            />
+            <select data-provider>
+              <option value="wasm">WASM</option>
+            </select>
+            <select data-privacy>
+              <option value="strip-all">Strip all metadata</option>
+            </select>
+            <input data-feather type="range" min="0" max="32" step="1" value="15" />
+            <input data-quality type="range" min="0.1" max="1" step="0.01" value="0.92" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" data-process type="button">Remove Watermark</button>
+          <a class="secondary" data-download hidden>Download Result</a>
+          
+          <!-- Hidden legacy actions -->
+          <button data-load-model type="button" hidden></button>
+          <button data-regenerate-mask type="button" hidden></button>
+        </div>
+
+        <p class="status" data-status data-state="idle"></p>
+        <p class="model-meta" data-model-meta hidden></p>
+      </section>
+
+      <section class="preview">
+        <div class="preview-card">
+          <div class="editor-stage" data-editor-stage>
+            <img data-preview-image alt="Selected image preview" />
+          </div>
+          <p data-preview-meta>No image selected</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

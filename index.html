@@ -3,17 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Local ONNX Image Runner</title>
+    <title>Watermark Remover | Local Browser-Based Image Cleanup</title>
+    <meta
+      name="description"
+      content="Remove small image overlays locally in your browser with a fast ONNX-powered cleanup workflow. Upload, process, and download without sending files to a server."
+    />
+    <meta
+      name="keywords"
+      content="watermark remover, browser image cleanup, local image processing, ONNX image editor, AI image cleanup"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Watermark Remover" />
+    <link rel="canonical" href="https://banana.withus.fun/" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Watermark Remover | Local Browser-Based Image Cleanup"
+    />
+    <meta
+      property="og:description"
+      content="Upload an image, process it locally in the browser, and download the result with a private ONNX-powered workflow."
+    />
+    <meta property="og:url" content="https://banana.withus.fun/" />
+    <meta property="og:site_name" content="Watermark Remover" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Watermark Remover | Local Browser-Based Image Cleanup"
+    />
+    <meta
+      name="twitter:description"
+      content="A private browser-based image cleanup tool powered by local ONNX inference."
+    />
     <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Watermark Remover",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web Browser",
+        "description": "A browser-based image cleanup tool that processes images locally with ONNX inference.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
   <body>
     <main class="shell">
       <section class="hero">
         <p class="eyebrow">Private, browser-only image processing</p>
-        <h1>Remove watermarks instantly.</h1>
+        <h1>Clean up images locally in your browser.</h1>
         <p class="lede">
-          Upload an image, and we'll automatically remove the watermark for you.
-          Everything happens locally in your browser—your data never leaves your device.
+          Upload an image, process it with a local ONNX-powered workflow, and
+          download the result without sending files to a remote server.
         </p>
       </section>
 
@@ -55,7 +103,7 @@
         </div>
 
         <div class="actions">
-          <button class="primary" data-process type="button">Remove Watermark</button>
+          <button class="primary" data-process type="button">Process Image</button>
           <a class="secondary" data-download hidden>Download Result</a>
           
           <!-- Hidden legacy actions -->
